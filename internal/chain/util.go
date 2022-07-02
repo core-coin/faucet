@@ -4,7 +4,6 @@ import (
 	"math/big"
 
 	"github.com/core-coin/go-core/common"
-	// "github.com/ethereum/go-ethereum/common"
 )
 
 func IsValidAddress(address string, checksummed bool) bool {
