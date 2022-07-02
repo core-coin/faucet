@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"crypto/ecdsa"
+	//"crypto/ecdsa"
 	"errors"
 	"flag"
 	"fmt"
@@ -10,7 +10,10 @@ import (
 	"os/signal"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/crypto"
+	ecdsa "github.com/core-coin/go-goldilocks"
+
+	//"github.com/ethereum/go-ethereum/crypto"
+	"github.com/core-coin/go-core/crypto"
 
 	"github.com/chainflag/eth-faucet/internal/chain"
 	"github.com/chainflag/eth-faucet/internal/server"
@@ -67,19 +70,20 @@ func Execute() {
 
 func getPrivateKeyFromFlags() (*ecdsa.PrivateKey, error) {
 	if *privKeyFlag != "" {
-		return crypto.HexToECDSA(*privKeyFlag)
-	} else if *keyJSONFlag == "" {
-		return nil, errors.New("missing private key or keystore")
+		return crypto.HexToEDDSA(*privKeyFlag)
+	} else { // if *keyJSONFlag == ""
+		return nil, errors.New("missing private key")
 	}
+	/*
+		keyfile, err := chain.ResolveKeyfilePath(*keyJSONFlag)
+		if err != nil {
+			return nil, err
+		}
+		password, err := os.ReadFile(*keyPassFlag)
+		if err != nil {
+			return nil, err
+		}
 
-	keyfile, err := chain.ResolveKeyfilePath(*keyJSONFlag)
-	if err != nil {
-		return nil, err
-	}
-	password, err := os.ReadFile(*keyPassFlag)
-	if err != nil {
-		return nil, err
-	}
-
-	return chain.DecryptKeyfile(keyfile, strings.TrimRight(string(password), "\r\n"))
+		return chain.DecryptKeyfile(keyfile, strings.TrimRight(string(password), "\r\n"))
+	*/
 }
