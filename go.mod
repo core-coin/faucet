@@ -5,7 +5,6 @@ go 1.16
 
 require (
 	github.com/LK4D4/trylock v0.0.0-20191027065348-ff7e133a5c54
-	github.com/chainflag/eth-faucet v1.1.0
 	github.com/core-coin/go-core v1.1.4
 	github.com/core-coin/go-goldilocks v1.0.9
 	github.com/ethereum/go-ethereum v1.10.17
