@@ -33,9 +33,10 @@ func NewLimiter(proxyCount int, ttl time.Duration) *Limiter {
 }
 
 func (l *Limiter) ServeHTTP(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+	fmt.Println("TEST!")
 	address := r.PostFormValue(AddressKey)
 	if !chain.IsValidAddress(address, true) {
-		http.Error(w, "invalid address", http.StatusBadRequest)
+		http.Error(w, "inalid address", http.StatusBadRequest)
 		return
 	}
 	if l.ttl <= 0 {

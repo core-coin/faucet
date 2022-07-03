@@ -51,10 +51,13 @@ func Execute() {
 	if err != nil {
 		panic(fmt.Errorf("failed to read private key: %w", err))
 	}
-	var chainID *big.Int
+
+	var chainID *big.Int //3
 	if value, ok := chainIDMap[strings.ToLower(*netnameFlag)]; ok {
 		chainID = big.NewInt(int64(value))
 	}
+	fmt.Println(chainID)
+	// chainID := big.NewInt(3)
 
 	txBuilder, err := chain.NewTxBuilder(*providerFlag, privateKey, chainID)
 	if err != nil {

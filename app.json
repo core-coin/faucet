@@ -1,6 +1,6 @@
 {
   "name": "eth-faucet",
-  "repository": "https://github.com/chainflag/eth-faucet",
+  "repository": "https://github.com/todesstille/eth-faucet",
   "env": {
     "WEB3_PROVIDER": {
       "description": "JSON-RPC endpoint uri to an Ethereum node",
