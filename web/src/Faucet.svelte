@@ -27,7 +27,7 @@
 
   async function handleRequest() {
     try {
-      address = getAddress(address);
+      // address = getAddress(address);
     } catch (error) {
       toast({ message: error.reason, type: 'is-warning' });
       return;
@@ -60,7 +60,7 @@
               <span class="icon">
                 <i class="fa fa-bath" />
               </span>
-              <span><b>ETH Faucet</b></span>
+              <span><b>XCB Faucet</b></span>
             </a>
           </div>
           <div id="navbarMenu" class="navbar-menu">
@@ -86,7 +86,7 @@
       <div class="container has-text-centered">
         <div class="column is-6 is-offset-3">
           <h1 class="title">
-            Receive {faucetInfo.payout} ETH per request
+            Receive {faucetInfo.payout} XCB per request
           </h1>
           <h2 class="subtitle">
             Serving from {faucetInfo.account}

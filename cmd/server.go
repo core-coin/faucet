@@ -13,6 +13,7 @@ import (
 	ecdsa "github.com/core-coin/go-goldilocks"
 
 	//"github.com/ethereum/go-ethereum/crypto"
+	"github.com/core-coin/go-core/common"
 	"github.com/core-coin/go-core/crypto"
 
 	"github.com/todesstille/eth-faucet/internal/chain"
@@ -47,6 +48,7 @@ func init() {
 }
 
 func Execute() {
+	common.DefaultNetworkID = common.NetworkID(3)
 	privateKey, err := getPrivateKeyFromFlags()
 	if err != nil {
 		panic(fmt.Errorf("failed to read private key: %w", err))
