@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/todesstille/eth-faucet/cmd"
+	"github.com/core-coin/faucet/cmd"
 )
 
 func main() {

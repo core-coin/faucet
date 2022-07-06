@@ -1,4 +1,4 @@
-module github.com/todesstille/eth-faucet
+module github.com/core-coin/faucet
 
 // +heroku goVersion go1.16
 go 1.16

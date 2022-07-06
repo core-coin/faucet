@@ -16,8 +16,8 @@ import (
 	"github.com/core-coin/go-core/common"
 	"github.com/core-coin/go-core/crypto"
 
-	"github.com/todesstille/eth-faucet/internal/chain"
-	"github.com/todesstille/eth-faucet/internal/server"
+	"github.com/core-coin/faucet/internal/chain"
+	"github.com/core-coin/faucet/internal/server"
 )
 
 var (

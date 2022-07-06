@@ -13,8 +13,8 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/negroni"
 
-	"github.com/todesstille/eth-faucet/internal/chain"
-	"github.com/todesstille/eth-faucet/web"
+	"github.com/core-coin/faucet/internal/chain"
+	"github.com/core-coin/faucet/web"
 )
 
 const AddressKey string = "address"
