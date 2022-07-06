@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { getAddress } from '@ethersproject/address';
+  import { getAddress } from './address.js';
   import { setDefaults as setToast, toast } from 'bulma-toast';
 
   let address = null;
@@ -10,7 +10,7 @@
     payout: 1,
   };
 
-  $: document.title = `ETH ${capitalize(faucetInfo.network)} Faucet`;
+  $: document.title = `XCB ${capitalize(faucetInfo.network)} Faucet`;
 
   onMount(async () => {
     const res = await fetch('/api/info');
@@ -27,7 +27,7 @@
 
   async function handleRequest() {
     try {
-      // address = getAddress(address);
+      address = getAddress(address);
     } catch (error) {
       toast({ message: error.reason, type: 'is-warning' });
       return;

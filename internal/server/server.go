@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -116,7 +117,8 @@ func (s *Server) handleClaim() http.HandlerFunc {
 			"txHash":  txHash,
 			"address": address,
 		}).Info("Funded directly successfully")
-		fmt.Fprintf(w, "Txhash: %s", txHash)
+		hex.EncodeToString(txHash.Bytes())
+		fmt.Fprintf(w, "Txhash: %s", hex.EncodeToString(txHash.Bytes()))
 	}
 }
 

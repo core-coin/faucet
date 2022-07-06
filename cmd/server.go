@@ -58,8 +58,6 @@ func Execute() {
 	if value, ok := chainIDMap[strings.ToLower(*netnameFlag)]; ok {
 		chainID = big.NewInt(int64(value))
 	}
-	fmt.Println(chainID)
-	// chainID := big.NewInt(3)
 
 	txBuilder, err := chain.NewTxBuilder(*providerFlag, privateKey, chainID)
 	if err != nil {
