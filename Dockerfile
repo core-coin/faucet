@@ -8,9 +8,9 @@ RUN npm install
 COPY ./web .
 RUN npm run build
 
-FROM golang:1.16-alpine as backend
+FROM golang:1.16 as backend
 
-RUN apk add --no-cache gcc musl-dev linux-headers
+RUN apt-get update && apt-get install -y ca-certificates git-core ssh gcc musl-dev
 
 WORKDIR /backend-build
 
@@ -24,7 +24,9 @@ RUN go build -o faucet -ldflags "-s -w"
 
 FROM alpine
 
-RUN apk add --no-cache ca-certificates
+FROM golang:1.16
+
+#RUN apk add --no-cache ca-certificates bash
 
 COPY --from=backend /backend-build/faucet /app/faucet
 
