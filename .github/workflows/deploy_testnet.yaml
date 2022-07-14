@@ -1,0 +1,17 @@
+name: deploy_testnet
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: [self-hosted, docker]
+    if: github.ref == 'refs/heads/ci-cd'
+    steps:
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        env:
+          HOME: /root
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+          if_key_exists: 'replace'
+      - name: DeployTestnet
+        run: ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@${{secrets.SERVER_TESTNET}} "cd /data/faucet && ls && docker compose pull && docker compose up -d && sleep 20 && docker compose logs --tail 100"
