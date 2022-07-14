@@ -9,5 +9,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Docker
         run: |
+          docker login ghcr.io -u ${{github.actor}} -p ${{secrets.GITHUB_TOKEN}}
           docker build -f Dockerfile -t ghcr.io/core-coin/faucet/faucet:latest .
           docker push --all-tags ghcr.io/core-coin/faucet/faucet
