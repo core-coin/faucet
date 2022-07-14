@@ -10,7 +10,7 @@ RUN npm run build
 
 FROM golang:1.16 as backend
 
-RUN apt-get update && apt-get install -y ca-certificates git-core ssh gcc musl-dev
+RUN apt-get update && apt-get install -y gcc musl-dev
 
 WORKDIR /backend-build
 
