@@ -2,7 +2,7 @@ name: deploy_testnet
 on: workflow_dispatch
 jobs:
   deploy:
-    runs-on: [self-hosted, docker]
+    runs-on: docker
     if: github.ref == 'refs/heads/ci-cd'
     steps:
       - name: Install SSH Key
