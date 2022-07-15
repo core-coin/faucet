@@ -12,4 +12,4 @@ jobs:
           known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
           if_key_exists: 'replace'
       - name: DeployTestnet
-        run: ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@${{secrets.SERVER_TESTNET}} "cd /data/faucet && ls && docker-compose pull && docker-compose up -d && sleep 20 && docker-compose logs --tail 100"
+        run: ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@${{secrets.SERVER_TESTNET}} "cd /data/faucet && ls && docker-compose pull && docker-compose down && docker-compose up -d && sleep 20 && docker-compose logs --tail 100"
