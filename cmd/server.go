@@ -12,7 +12,6 @@ import (
 
 	ecdsa "github.com/core-coin/go-goldilocks"
 
-	//"github.com/ethereum/go-ethereum/crypto"
 	"github.com/core-coin/go-core/common"
 	"github.com/core-coin/go-core/crypto"
 
