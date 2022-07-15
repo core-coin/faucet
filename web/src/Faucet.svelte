@@ -5,12 +5,12 @@
 
   let address = null;
   let faucetInfo = {
-    account: '0x0000000000000000000000000000000000000000',
-    network: 'testnet',
+    account: 'AB000000000000000000000000000000000000000000',
+    network: 'devin',
     payout: 1,
   };
 
-  $: document.title = `XCB ${capitalize(faucetInfo.network)} Faucet`;
+  $: document.title = `XAB ${capitalize(faucetInfo.network)} Faucet`;
 
   onMount(async () => {
     const res = await fetch('/api/info');
@@ -51,42 +51,27 @@
 </script>
 
 <main>
-  <section class="hero is-info is-fullheight">
-    <div class="hero-head">
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item" href=".">
-              <span class="icon">
-                <i class="fa fa-bath" />
-              </span>
-              <span><b>XCB Faucet</b></span>
-            </a>
-          </div>
-          <div id="navbarMenu" class="navbar-menu">
-            <div class="navbar-end">
-              <span class="navbar-item">
-                <a
-                  class="button is-white is-outlined"
-                  href="https://github.com/core-coin/faucet"
-                >
-                  <span class="icon">
-                    <i class="fa fa-github" />
-                  </span>
-                  <span>View Source</span>
-                </a>
-              </span>
-            </div>
-          </div>
+  <section class="hero bcg is-fullheight">
+    <nav class="navbar">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <span class="navbar-item">
+            <a class="button is-primary is-outlined" href="https://coreblockchain.cc" target="_blank">Blockchain</a>
+          </span>
         </div>
-      </nav>
-    </div>
+        <div class="navbar-end">
+          <span class="navbar-item">
+            <a class="button is-info is-outlined" href="https://github.com/core-coin/faucet" target="_blank">Source code</a>
+          </span>
+        </div>
+      </div>
+    </nav>
 
     <div class="hero-body">
       <div class="container has-text-centered">
-        <div class="column is-6 is-offset-3">
+        <div class="column">
           <h1 class="title">
-            Receive {faucetInfo.payout} XCB per request
+            Receive {faucetInfo.payout} XAB per request
           </h1>
           <h2 class="subtitle">
             Serving from {faucetInfo.account}
@@ -96,15 +81,15 @@
               <p class="control is-expanded">
                 <input
                   bind:value={address}
-                  class="input is-rounded"
+                  class="input is-medium"
                   type="text"
-                  placeholder="Enter your address"
+                  placeholder="Enter your wallet"
                 />
               </p>
               <p class="control">
                 <button
                   on:click={handleRequest}
-                  class="button is-primary is-rounded"
+                  class="button is-primary is-medium"
                 >
                   Request
                 </button>
@@ -118,9 +103,11 @@
 </main>
 
 <style>
-  .hero.is-info {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/XAB.png') no-repeat center center fixed;
+  .title, h1, h2 {
+    color: #d86f42;
+  }
+  .hero.bcg {
+    background: url('/background.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -131,6 +118,19 @@
     line-height: 1.5;
   }
   .box {
-    border-radius: 19px;
+    border-radius: 1em;
+    background-color: rgba(255,255,255,0.7);
+  }
+  input::placeholder {
+    color: #363636;
+    opacity: 1;
+  }
+
+  input:-ms-input-placeholder {
+    color: #363636;
+  }
+
+  input::-ms-input-placeholder {
+    color: #363636;
   }
 </style>
