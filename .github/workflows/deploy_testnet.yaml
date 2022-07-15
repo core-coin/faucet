@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
   deploy:
     runs-on: docker
-    if: github.ref == 'refs/heads/ci-cd'
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
