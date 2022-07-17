@@ -2,7 +2,6 @@
 /public/build/
 
 yarn.lock
-package-lock.json
 
 .vercel
 .DS_Store
