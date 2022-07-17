@@ -1,6 +1,6 @@
 <script>
   import 'animate.css';
-  import 'coco/dist/css/coco.css';
+  import 'bulma/css/bulma.css';
   import Faucet from './Faucet.svelte';
 </script>
 
