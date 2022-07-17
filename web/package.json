@@ -23,7 +23,7 @@
   "dependencies": {
     "@ethersproject/address": "^5.6.0",
     "animate.css": "^4.1.1",
-    "coco": "github:cryptohub-digital/coco",
+    "bulma": "^0.9.4",
     "bulma-toast": "^2.4.1",
     "sirv-cli": "^2.0.0"
   }
