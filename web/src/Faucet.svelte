@@ -6,7 +6,7 @@
   let address = null;
   let faucetInfo = {
     account: 'AB000000000000000000000000000000000000000000',
-    network: 'devin',
+    network: 'devín',
     payout: 1,
   };
 
@@ -56,12 +56,15 @@
       <div class="navbar-menu">
         <div class="navbar-start">
           <span class="navbar-item">
-            <a class="button is-primary is-outlined" href="https://coreblockchain.cc" target="_blank">Blockchain</a>
+            <h1>XAB — {capitalize(faucetInfo.network)} Network</h1>
           </span>
         </div>
         <div class="navbar-end">
           <span class="navbar-item">
-            <a class="button is-info is-outlined" href="https://github.com/core-coin/faucet" target="_blank">Source code</a>
+            <a class="button is-primary is-outlined" href="https://coreblockchain.cc" target="_blank">Blockchain</a>
+          </span>
+          <span class="navbar-item">
+            <a class="button is-primary is-outlined" href="https://github.com/core-coin/faucet" target="_blank">Source code</a>
           </span>
         </div>
       </div>
@@ -74,7 +77,7 @@
             Receive {faucetInfo.payout} XAB per request
           </h1>
           <h2 class="subtitle">
-            Serving from {faucetInfo.account}
+            Serving from {faucetInfo.account.match(/.{1,4}/g).join(' ')}
           </h2>
           <div class="box">
             <div class="field is-grouped">
@@ -103,8 +106,14 @@
 </main>
 
 <style>
-  .title, h1, h2 {
+  .title, h1.title, h2 {
     color: #d86f42;
+    text-shadow: 1px 1px 2px black;
+  }
+  nav h1 {
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: 400;
   }
   .hero.bcg {
     background: url('/background.png') no-repeat center center fixed;
