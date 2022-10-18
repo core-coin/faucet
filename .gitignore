@@ -20,3 +20,4 @@
 password.txt
 /.makeenv
 /.env
+/internal/contracts/generated.go
