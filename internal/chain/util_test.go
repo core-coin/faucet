@@ -42,8 +42,8 @@ func TestEtherToWei(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := EtherToWei(tt.amount); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("EtherToWei() = %v, want %v", got, tt.want)
+			if got := CoreToWei(tt.amount); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("CoreToWei() = %v, want %v", got, tt.want)
 			}
 		})
 	}

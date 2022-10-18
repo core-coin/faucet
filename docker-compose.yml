@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: "postgres"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=corepass
+    restart: always
+    network_mode: host
+
+  faucet:
+    image: faucet:latest
+    build:
+      context: .
+      args:
+        - GIT_ENERGY_USERNAME=${GIT_ENERGY_USERNAME}
+        - GIT_ENERGY_PASSWORD=${GIT_ENERGY_PASSWORD}
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    restart: "always"
+    network_mode: "host"
+
+volumes:
+  postgres:

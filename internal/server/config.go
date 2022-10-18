@@ -1,21 +1,21 @@
 package server
 
 type Config struct {
-	network    string
-	httpPort   int
-	interval   int
-	payout     int
-	proxyCount int
-	queueCap   int
+	httpPort     int
+	interval     int
+	payout       int
+	payoutTokens int
+	proxyCount   int
+	queueCap     int
 }
 
-func NewConfig(network string, httpPort, interval, payout, proxyCount, queueCap int) *Config {
+func NewConfig(httpPort, interval, payout, payoutTokens, proxyCount, queueCap int) *Config {
 	return &Config{
-		network:    network,
-		httpPort:   httpPort,
-		interval:   interval,
-		payout:     payout,
-		proxyCount: proxyCount,
-		queueCap:   queueCap,
+		httpPort:     httpPort,
+		interval:     interval,
+		payout:       payout,
+		payoutTokens: payoutTokens,
+		proxyCount:   proxyCount,
+		queueCap:     queueCap,
 	}
 }

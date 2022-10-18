@@ -17,7 +17,7 @@ func IsValidAddress(address string, checksummed bool) bool {
 	return !checksummed || addr.Hex() == address
 }
 
-func EtherToWei(amount int64) *big.Int {
+func CoreToWei(amount int64) *big.Int {
 	ether := new(big.Int).Exp(big.NewInt(10), big.NewInt(18), nil)
 	return new(big.Int).Mul(big.NewInt(amount), ether)
 }
