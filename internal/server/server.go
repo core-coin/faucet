@@ -205,8 +205,8 @@ func (s *Server) handleClaimAuthorized() http.HandlerFunc {
 				// request KYC data
 				err = s.callKYCRequest(id)
 				if err != nil {
-					//s.ErrorW(w, http.StatusInternalServerError, "/kyc/request endpoint returned err: "+err.Error(), "/kyc/request endpoint returned err: "+err.Error())
-					//return
+					s.ErrorW(w, http.StatusInternalServerError, "/kyc/request endpoint returned err: "+err.Error(), "/kyc/request endpoint returned err: "+err.Error())
+					return
 				}
 				err = s.storage.CreateCoreID(&models.CoreID{ID: id})
 				if err != nil {
